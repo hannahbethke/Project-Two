@@ -1,3 +1,5 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-/* use this instead? */
+.section {
+    background-image: "public/assets/home-img.jpg" alt="flowers";
+}
