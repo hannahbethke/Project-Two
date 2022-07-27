@@ -1,9 +1,9 @@
-const usersRouter = require('express').Router();
-const Timesheet = require('../models/timesheet');
-const User = require('../models/user');
+// const usersRouter = require('express').Router();
+// const Timesheet = require('../models/timesheet');
+// const User = require('../models/user');
 
-const bcrypt = require('bcrypt');
-const SALT_ROUNDS = 10;
+// const bcrypt = require('bcrypt');
+// const SALT_ROUNDS = 10;
 
 // add router middleware
 
@@ -15,4 +15,4 @@ const SALT_ROUNDS = 10;
 
 // profile show route (?)
 
-module.exports = usersRouter;
+// module.exports = usersRouter;
