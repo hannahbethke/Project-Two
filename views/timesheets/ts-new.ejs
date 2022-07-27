@@ -1,0 +1,37 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/homepage">
+        <img src="/public/assets/lotus2.png" width="28" height="28">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-item">
+      <div class="navbar-start">  
+        <a class="navbar-item" href="/timesheets">
+            Back
+        </a>
+      </div>
+  
+    <div class="navbar-item is-right">
+          <div class="buttons">
+            <a class="button is-primary" href="/login">
+              <strong>Sign Out</strong>
+            </a>
+          </div>
+        </div>
+  </nav>
+
+<h1>form to create new timesheet</h1>
+<form action="/timesheets" method="POST">
+    <input type="date" required="true" name="date">
+    <input type="text" name="startTime">
+    <input type="text" name="endTime">
+    <input type="text" name="location">
+    <textarea name="notes" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="Create Timesheet">
+</form>

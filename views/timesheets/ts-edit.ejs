@@ -1,0 +1,55 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/homepage">
+        <img src="/public/assets/lotus2.png" width="28" height="28">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-item">
+      <div class="navbar-start">  
+        <a class="navbar-item" href="/timesheets">
+            Back
+        </a>
+      </div>
+  
+    <div class="navbar-item is-right">
+          <div class="buttons">
+            <a class="button is-primary" href="/login">
+              <strong>Sign Out</strong>
+            </a>
+          </div>
+        </div>
+  </nav>
+  
+<h1>edit current timesheet</h1>
+<h2><%= editTimesheet.date %></h2>
+
+<form action="/timesheets/<%= editTimesheet._id %>?_method=PUT" method="POST">
+    <table>  
+        <tr>
+            <td>Date: <input type="date" name="date" value = "<%= editTimesheet.date %>"></td>
+        </tr>
+        <tr>
+            <td>Start Time: <input type="text" name="startTime" value = "<%= editTimesheet.startTime %>"></td>
+        </tr>
+        <tr>
+            <td>End Time: <input type="text" name = "endTime" value = "<%= editTimesheet.endTime %>"></td>
+        </tr>
+        <tr>
+            <td>Location: <input type="text" name="location" value = "<%= editTimesheet.location %>"></td>
+        </tr>
+        <tr>
+            <td>Notes: <input type="textarea" name="notes" id="" cols="30" rows="10" value = "<%= editTimesheet.notes %>"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Save Changes"></td>
+        </tr>
+    </table>
+</form>
+
+

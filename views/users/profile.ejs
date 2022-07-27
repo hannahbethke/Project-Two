@@ -1,0 +1,69 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/homepage">
+        <img src="/public/assets/lotus2.png" width="28" height="28">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-item">
+      <div class="navbar-start">  
+        <a class="navbar-item" href="/timesheets">
+            Back
+        </a>
+      </div>
+  
+    <div class="navbar-item is-right">
+          <div class="buttons">
+            <a class="button is-primary" href="/login">
+              <strong>Sign Out</strong>
+            </a>
+          </div>
+        </div>
+  </nav>
+
+<section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <div class="body" style="padding: 100px;">
+        <div class="container" style="background-color: white; padding: 20px">
+            <h1 style="font-size: larger;">Here is your profile info:</h1>
+            <br>
+
+            <form action="/signup" method = "POST">
+                <div class="field">
+
+                    <label class="label">Name</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="Jane Doe" autofocus required>
+                    </div>
+
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="jane.doe@email.com">
+                    </div>
+                    <!-- <p class="help is-danger">This email is invalid</p> -->
+
+
+                    <label class="label">Username</label>
+                    <div class="control">
+                      <input class="input" type="text" placeholder="select username" required>
+
+                    <!-- <p class="help is-success">This username is available</p>
+                    <p class="help is-danger">This username has already been taken</p> -->
+ 
+                    <label class="label">Password</label>
+                    <div class="control">
+                      <input class="input" type="password" placeholder="select password" required>
+                    </div> 
+                    <br>
+                    <input class="button is-light" type="submit" value="Sign-up">
+            </form>
+        </div>
+        <br>
+        <p>Already have an account?</p>
+        <a class="button is-light" href="/homepage">Login</a>
+    </div>
+</section> 

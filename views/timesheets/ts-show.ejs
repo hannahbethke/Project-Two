@@ -1,0 +1,58 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/homepage">
+        <img src="/public/assets/lotus2.png" width="28" height="28">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-item">
+      <div class="navbar-start">  
+        <a class="navbar-item" href="/timesheets">
+            Back
+        </a>
+      </div>
+  
+    <div class="navbar-item is-right">
+          <div class="buttons">
+            <a class="button is-primary" href="/login">
+              <strong>Sign Out</strong>
+            </a>
+          </div>
+        </div>
+  </nav>
+
+  <h1>show this timesheet</h1>
+  <a href="/timesheets/<%= foundTimesheet._id%>/edit">Edit this timesheet</a>
+
+    <table>  
+        <tr>
+            <td>Date: <input type="text" name="date" value = "<%= foundTimesheet.date %>"></td>
+        </tr>
+        <tr>
+            <td>Start Time: <input type="text" name="startTime" value = "<%= foundTimesheet.startTime %>"></td>
+        </tr>
+        <tr>
+            <td>End Time: <input type="text" name = "endTime" value = "<%= foundTimesheet.endTime %>"></td>
+        </tr>
+        <tr>
+            <td>Location: <input type="text" name="location" value = "<%= foundTimesheet.location %>"></td>
+        </tr>
+        <tr>
+            <td>Notes: <input type="textarea" name="notes" id="" cols="30" rows="10" value = "<%= foundTimesheet.notes %>"></td>
+        </tr>
+    </table>
+    <br>
+  <form action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete">
+  </form>
+
+
+
+
+
+
