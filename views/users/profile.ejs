@@ -1,69 +1,92 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/homepage">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
+  <div class="navbar-brand">
     <div class="navbar-item">
-      <div class="navbar-start">  
-        <a class="navbar-item" href="/timesheets">
-            Back
+      <img src="/public/assets/lotus2.png" width="28" height="28">
+    </div>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/users/dashboard">
+        Back to Dashboard
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
         </a>
-      </div>
-  
-    <div class="navbar-item is-right">
-          <div class="buttons">
-            <a class="button is-primary" href="/login">
-              <strong>Sign Out</strong>
-            </a>
-          </div>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/users/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
+        Time-Off Requests
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
         </div>
-  </nav>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/users/logout">
+            <strong>Sign Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
-    <div class="body" style="padding: 100px;">
-        <div class="container" style="background-color: white; padding: 20px">
-            <h1 style="font-size: larger;">Here is your profile info:</h1>
+  <div class="body" style="padding: 100px;">
+    <div class="container" style="background-color: white; padding: 20px">
+
+      <br>
+      <div class="box">
+        <div class="field">
+          <label class="label">Name: </label>
+            <div class="control">
+              <p><%= user.name %></p>
+            </div>
+
+            <label class="label">Phone Number: </label>
+            <div class="control">
+              <p><%= user.phone %></p>
+            </div>
+
+            <label class="label">Email: </label>
+            <div class="control">
+              <p><%= user.email %></p>
+            </div>
+
+            <label class="label">Password: </label>
+            <div class="control">
+              <p><%= user.password %></p>
+            </div> 
             <br>
-
-            <form action="/signup" method = "POST">
-                <div class="field">
-
-                    <label class="label">Name</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Jane Doe" autofocus required>
-                    </div>
-
-                    <label class="label">Email</label>
-                    <div class="control">
-                        <input class="input" type="email" placeholder="jane.doe@email.com">
-                    </div>
-                    <!-- <p class="help is-danger">This email is invalid</p> -->
-
-
-                    <label class="label">Username</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="select username" required>
-
-                    <!-- <p class="help is-success">This username is available</p>
-                    <p class="help is-danger">This username has already been taken</p> -->
- 
-                    <label class="label">Password</label>
-                    <div class="control">
-                      <input class="input" type="password" placeholder="select password" required>
-                    </div> 
-                    <br>
-                    <input class="button is-light" type="submit" value="Sign-up">
-            </form>
         </div>
-        <br>
-        <p>Already have an account?</p>
-        <a class="button is-light" href="/homepage">Login</a>
+      </div>
+      <br>
+      <a class="button is-light" href="'users/profile/edit'">Edit Profile Information (dev)</a>
     </div>
+  </div>  
 </section> 

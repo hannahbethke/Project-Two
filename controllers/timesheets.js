@@ -3,10 +3,17 @@ const mongoose = require('mongoose');
 const timesheetsRouter = express.Router();
 
 const Timesheet = require('../models/timesheet')
-// const User = require('../models/user');
+const User = require('../models/user');
 
 
 // Add middleware to check if user is logged in
+timesheetsRouter.use(function (req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/users/login');
+    };
+});
 
 // ROUTES
 
@@ -16,8 +23,6 @@ timesheetsRouter.get('/', (req, res) => {
             res.render('./timesheets/ts-index.ejs', { allTimesheets });
     });
 });
-
-// filtered index route - list all logs by user
 
 // New
 timesheetsRouter.get('/new', (req, res) => {
@@ -29,13 +34,13 @@ timesheetsRouter.delete('/:id', (req, res) => {
     Timesheet.findByIdAndDelete(req.params.id, (err, deletedTimesheet) => {
         res.redirect('/timesheets');
     });
-
 })
 
 // Update
 timesheetsRouter.put('/:id', (req, res) => {
     Timesheet.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedTimesheet) => {
         res.redirect(`/timesheets/${req.params.id}`);
+        console.log(req.body.date);
     })
 })
 

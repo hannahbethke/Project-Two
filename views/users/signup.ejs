@@ -1,62 +1,59 @@
-<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: white;">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/home">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="right-side">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <img src="/public/assets/lotus2.png" width="28" height="28">
     </div>
-  
-    <div id="right-side" class="navbar-menu">
-      <div class="navbar-start">  
-        <a class="navbar-item" href="/home">
-          Company Name Employee Portal
-        </a>
-    </div>
+  </div>
+
+  <div id="navItems" class="navbar-menu">
+      <div class="navbar-start">
+          <div class="navbar-item">
+              Native Landscapes and Gardens Employee Portal
+          </div>
+      </div>
+  </div>
 </nav>
 
-<section class="hero is-fullheight" style="background-image: url('public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
-    <div class="body" style="padding: 100px;">
-        <div class="container" style="background-color: white; padding: 20px">
-            <h1 style="font-size: larger;">Sign up for a new account:</h1>
+<section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
+  <div class="body" style="padding: 100px;">
+    <div class="container" style="background-color: white; padding: 20px">
+        <h1 style="font-size: larger;"><strong>Sign up for a new account:</strong></h1>
+        <br>
+        <form action="/users/signup" method = "POST">
+          <div class="field">
+
+            <label class="label" for="name">Name</label>
+            <div class="control">
+              <input class="input" type="text" name="name" placeholder="name" autofocus required>
+            </div>
+
+            <label class="label" for="phone">Phone Number</label>
+            <div class="control">
+              <input class="input" type="tel" name="phone" placeholder="(000) 000-0000">
+            </div>
+
+            <label class="label" for="email">Email</label>
+            <div class="control">
+                <input class="input" type="email" name="email" placeholder="name@email.com" required="true">
+            </div>
+              <!-- <p class="help is-danger">This email is invalid</p> -->
+
+              <!-- <p class="help is-danger">There is already am account associate with this email</p> -->
+
+            <label class="label">Password- minimum of 8 characters</label>
+            <div class="control">
+              <input class="input" type="password" placeholder="select password" required="true">
+            </div> 
             <br>
-
-            <form action="/signup" method = "POST">
-                <div class="field">
-
-                    <label class="label">Name</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Jane Doe" autofocus required>
-                    </div>
-
-                    <label class="label">Email</label>
-                    <div class="control">
-                        <input class="input" type="email" placeholder="jane.doe@email.com">
-                    </div>
-                    <!-- <p class="help is-danger">This email is invalid</p> -->
-
-
-                    <label class="label">Username</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="select username" required>
-
-                    <!-- <p class="help is-success">This username is available</p>
-                    <p class="help is-danger">This username has already been taken</p> -->
- 
-                    <label class="label">Password</label>
-                    <div class="control">
-                      <input class="input" type="password" placeholder="select password" required>
-                    </div> 
-                    <br>
-                    <input class="button is-light" type="submit" value="Sign-up">
-            </form>
-        </div>
+            <input class="button is-primary" type="submit" value="Sign-up">
+          </div>
+        </form>
+        <br>
+        <a class="button is-light" href="/homepage">Cancel</a>
         <br>
         <p>Already have an account?</p>
-        <a class="button is-light" href="/homepage">Login</a>
+        <a class="button is-light" href="/users/login">Login</a>
     </div>
+  </div>
 </section> 
 

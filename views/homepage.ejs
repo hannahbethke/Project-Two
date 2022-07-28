@@ -1,103 +1,32 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <div class="navbar-item">
-      <img src="/public/assets/lotus2.png" width="28" height="28">
-    </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navItems" class="navbar-menu">
-    <div class="navbar-start">
-
+    <div class="navbar-brand">
       <div class="navbar-item">
-        My Dashboard
+        <img src="/public/assets/lotus2.png" width="28" height="28">
       </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Menu
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="/user/profile" >
-            My Profile
-          </a>
-          <a class="navbar-item" href="/timesheets">
-            Timesheets
-          </a>
-          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
-            target="_blank" rel="noreferrer noopener">
-            Paystubs
-          </a>
-          <a class="navbar-item">
-        Time-Off Requests
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Contacts
-          </a>
-        </div>
-      </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" href="/login">
-            <strong>Sign Out</strong>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-  <!-- <img src="public/assets/home-img.jpg" alt="flowers"> -->
-
-  <section class="section">
-    <%  const date = new Date();
-        const dateToString = date.toDateString(); 
-        let complimentArray = ["Your code is as sweet as syntactic sugar.", "Doin' it flexbox froggie style!", "You are sooooooo smart!", "You are good enough, you are smart enough, and doggone it... people like you!", "Here is a really good compliment for you..."]; %>
-    <h1 class="title"><%= dateToString %></h1>
-    <h2 class="subtitle">
-      <%= complimentArray[Math.floor(Math.random() * complimentArray.length)] %>
-    </h2>
-  </section>
-
-  <div class="tile is-ancestor">
-    <div class="tile is-vertical is-12">
-      <div class="tile">
-        <div class="tile is-parent is-vertical">
-          <article class="tile is-child notification is-primary" style="background-color:#9D7DBD;">
-            <div id="ww_36352ada4d3c7" v='1.20' loc='auto' a='{"t":"horizontal","lang":"en","ids":[],"cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_sot":"fahrenheit","sl_ics":"one_a","font":"Arial"}'><a href="https://weatherwidget.org/" id="ww_36352ada4d3c7_u" target="_blank">Embed Weather Widget on Website</a> with Weatherwidget.org</div><script async src="https://srv1.weatherwidget.org/js/?id=ww_36352ada4d3c7"></script>
-          </article>
-          <article class="tile is-child notification is-warning" style="background-color:#9D7DBD;">
-            <p class="title">Links to Plant and Weed Data</p>
-            <p class="subtitle"></p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-info" >
-            <p class="title">Calendar</p>
-            <iframe src="https://calendar.google.com/calendar/embed?src=jdt4114tva503f9192qnt6r6f4%40group.calendar.google.com&ctz=America%2FDenver" style="border: 0" width="350px" height="300px" frameborder="0" scrolling="no"></iframe>
-          </article>
-        </div>
-      </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification is-danger">
-          <p class="title">Emergency Resources</p>
-          <p class="subtitle"></p>
-          <div class="content">
-            <!-- Content -->
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-
-
   
+    <div id="navItems" class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item">
+                Native Landscapes and Gardens Employee Portal
+            </div>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/users/signup">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light" href="/users/login">
+                        Log in
+                    </a>
+                 </div>
+            </div>
+        </div>
+    </div>
+</nav>
