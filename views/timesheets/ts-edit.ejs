@@ -1,38 +1,74 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/homepage">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
+  <div class="navbar-brand">
     <div class="navbar-item">
-      <div class="navbar-start">  
-        <a class="navbar-item" href="/timesheets">
-            Back
-        </a>
-      </div>
-  
-    <div class="navbar-item is-right">
-          <div class="buttons">
-            <a class="button is-primary" href="/login">
-              <strong>Sign Out</strong>
-            </a>
-          </div>
-        </div>
-  </nav>
-  
-<h1>edit current timesheet</h1>
-<h2><%= editTimesheet.date %></h2>
+      <img src="/public/assets/lotus2.png" width="28" height="28">
+    </div>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<form action="/timesheets/<%= editTimesheet._id %>?_method=PUT" method="POST">
-    <table>  
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/timesheets/<%= editTimesheet._id%>">
+        Back
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/user/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
+        Time-Off Requests
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/login">
+            <strong>Sign Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  
+<article class="panel">
+  <p class="panel-heading">
+    Edit Timesheet
+  </p>
+<div class="box">
+  <form action="/timesheets/<%= editTimesheet._id %>?_method=PUT" method="POST">
+    <table class="table is-striped is-narrow is-hoverable is-fullwidth">  
+      <thead>
+        <td><strong>Timesheet Entry: <strong><%= editTimesheet.date %></td>
+        <td></td>
+      </thead>
         <tr>
-            <td>Date: <input type="date" name="date" value = "<%= editTimesheet.date %>"></td>
+            <td>Date: <input type="date" name="date" value = "<%= editTimesheet.date %>" required="true"></td>
         </tr>
         <tr>
             <td>Start Time: <input type="text" name="startTime" value = "<%= editTimesheet.startTime %>"></td>
@@ -44,12 +80,10 @@
             <td>Location: <input type="text" name="location" value = "<%= editTimesheet.location %>"></td>
         </tr>
         <tr>
-            <td>Notes: <input type="textarea" name="notes" id="" cols="30" rows="10" value = "<%= editTimesheet.notes %>"></td>
+            <td>Notes: <input type="text" name="notes" id="" cols="30" rows="10" value = "<%= editTimesheet.notes %>"></td>
         </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Save Changes"></td>
-        </tr>
-    </table>
-</form>
+      </table>
+        <input class="button" type="submit" value="Save Changes">
+  </form>
 
 

@@ -1,78 +1,85 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/homepage">
-      <img src="public/assets/lotus2.png" width="28" height="28">
+    <div class="navbar-item">
+      <img src="/public/assets/lotus2.png" width="28" height="28">
     </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link">
-      Menu
-    </a>
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
 
-    <div class="navbar-dropdown">
-      <a class="navbar-item" href="/user/profile" >
-        My Profile
+      <a class="navbar-item" href="/homepage">
+        Back to Dashboard
       </a>
-      <a class="navbar-item" href="/timesheets">
-        Timesheets
-      </a>
-      <a class="navbar-item">
-        Paystubs (future dev)
-      </a>
-      <a class="navbar-item">
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/user/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
         Time-Off Requests
-      </a>
-      <hr class="navbar-divider">
-      <a class="navbar-item">
-        Contact
-      </a>
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="navbar-end">
+    <div class="navbar-end">
+      <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary" href="/login">
             <strong>Sign Out</strong>
           </a>
         </div>
       </div>
+    </div>
+  </div>
 </nav>
 
+<article class="panel">
+  <p class="panel-heading">
+    My Timesheets
+  </p>
+  <br>
+  <div class="container">
+    <a href="/timesheets/new" class="button">Create New Timesheet</a>
+  </div>
   <hr>
-  <a href="/timesheets/new" class="button">Create New Timesheet</a>
-  <hr>
-  <article class="panel">
-    <p class="panel-heading">
-      My Timesheets
-    </p>
-    <p class="panel-tabs">
-      <a class="is-active">All</a>
-      <a href="#">By Week</a>
-      <a href="#">By Month</a>
-    </p>
-    <!-- <div class="panel-block">
-      <p class="control has-icons-left">
-        <input class="input is-success" type="text" placeholder="Search">
-        <span class="icon is-left">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </span>
-      </p>
-    </div> -->
-    <% for (let i = 0; i < allTimesheets.length; i++) { %>
-    <a class="panel-block is-active" href="/timesheets/<%= allTimesheets[i]._id%>">
-      <span class="panel-icon">
-        <i class="fas fa-book" aria-hidden="true"></i>
-      </span>
-      <%= allTimesheets[i].date %>
-    </a>
-    <% }; %>
-  </article>
+  <p class="panel-tabs">
+    <a class="is-active">All</a>
+    <a href="#">By Week</a>
+    <a href="#">By Month</a>
+  </p>
+  <% for (let i = 0; i < allTimesheets.length; i++) { %>
+  <a class="panel-block is-active" href="/timesheets/<%= allTimesheets[i]._id%>">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    <%= allTimesheets[i].date %>
+  </a>
+  <% }; %>
+</article>
+
 
  
 

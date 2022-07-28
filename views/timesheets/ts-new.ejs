@@ -1,37 +1,87 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/homepage">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
+  <div class="navbar-brand">
     <div class="navbar-item">
-      <div class="navbar-start">  
-        <a class="navbar-item" href="/timesheets">
-            Back
-        </a>
-      </div>
-  
-    <div class="navbar-item is-right">
-          <div class="buttons">
-            <a class="button is-primary" href="/login">
-              <strong>Sign Out</strong>
-            </a>
-          </div>
-        </div>
-  </nav>
+      <img src="/public/assets/lotus2.png" width="28" height="28">
+    </div>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<h1>form to create new timesheet</h1>
-<form action="/timesheets" method="POST">
-    <input type="date" required="true" name="date">
-    <input type="text" name="startTime">
-    <input type="text" name="endTime">
-    <input type="text" name="location">
-    <textarea name="notes" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="Create Timesheet">
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/timesheets/">
+        Back
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/user/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
+        Time-Off Requests
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/login">
+            <strong>Sign Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<article class="panel">
+  <p class="panel-heading">
+    Create New Timesheet
+  </p>
+<div class="box">
+  <form action="/timesheets" method="POST">
+    <table class="table is-striped is-narrow is-hoverable is-fullwidth">  
+      <thead>
+        <td><strong>New Timesheet: <strong></td>
+        <td></td>
+      </thead>
+    <tr>
+      <td>Date: <input type="date" name="date" required="true"></td>
+    </tr>
+    <tr>
+      <td>Start Time: <input type="text" name="startTime"></td>
+    </tr>
+    <tr>
+      <td>End Time: <input type="text" name="endTime"></td>
+    </tr>
+    <tr>
+      <td>Location: <input type="text" name="location"></td>
+    </tr>
+    <tr>
+      <td>Notes: <input name="notes" id="" cols="30" rows="10"></td>
+    </tr>
+    <table>
+      <input class="button" type="submit" value="Create Timesheet">
 </form>

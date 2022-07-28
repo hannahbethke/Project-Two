@@ -1,56 +1,98 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/homepage">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </a>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
+  <div class="navbar-brand">
     <div class="navbar-item">
-      <div class="navbar-start">  
-        <a class="navbar-item" href="/timesheets">
-            Back
+      <img src="/public/assets/lotus2.png" width="28" height="28">
+    </div>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/timesheets/">
+        Back
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
         </a>
-      </div>
-  
-    <div class="navbar-item is-right">
-          <div class="buttons">
-            <a class="button is-primary" href="/login">
-              <strong>Sign Out</strong>
-            </a>
-          </div>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/user/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
+        Time-Off Requests
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
         </div>
-  </nav>
+      </div>
+    </div>
 
-  <h1>show this timesheet</h1>
-  <a href="/timesheets/<%= foundTimesheet._id%>/edit">Edit this timesheet</a>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/login">
+            <strong>Sign Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
-    <table>  
+<article class="panel">
+  <p class="panel-heading">
+    My Timesheets
+  </p>
+  <div class="box">
+    <table class="table is-striped is-narrow is-hoverable is is-fullwidth">  
+      <thead>
+          <td><strong>Timesheet Entry: <%= foundTimesheet.date %></strong></td>
+          <td></td>
+      </thead>
         <tr>
-            <td>Date: <input type="text" name="date" value = "<%= foundTimesheet.date %>"></td>
+          <td>Date: <%= foundTimesheet.date %></td>
         </tr>
-        <tr>
-            <td>Start Time: <input type="text" name="startTime" value = "<%= foundTimesheet.startTime %>"></td>
-        </tr>
-        <tr>
-            <td>End Time: <input type="text" name = "endTime" value = "<%= foundTimesheet.endTime %>"></td>
-        </tr>
-        <tr>
-            <td>Location: <input type="text" name="location" value = "<%= foundTimesheet.location %>"></td>
-        </tr>
-        <tr>
-            <td>Notes: <input type="textarea" name="notes" id="" cols="30" rows="10" value = "<%= foundTimesheet.notes %>"></td>
-        </tr>
+      <tr>
+          <td>Start Time: <%= foundTimesheet.startTime %></td>
+      </tr>
+      <tr>
+          <td>End Time: <%= foundTimesheet.endTime %></td>
+      </tr>
+      <tr>
+          <td>Location: <%= foundTimesheet.location %></td>
+      </tr>
+      <tr>
+          <td>Notes: <%= foundTimesheet.notes %></td>
+      </tr>
     </table>
     <br>
-  <form action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-  </form>
-
+    <div class="level">
+      <div class="level-item" style="justify-content: left;">
+        <a class="button" href="/timesheets/<%= foundTimesheet._id%>/edit" style="margin-inline: 20px;">Edit timesheet</a>
+        <form action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
+          <input class="button" type="submit" value="Delete Timesheet">
+        </form>
+      </div>
+    </div>
+  </div>
+</article>
 
 
 

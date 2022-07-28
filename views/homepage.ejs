@@ -1,47 +1,59 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
-      <img src="public/assets/lotus2.png" width="28" height="28">
+      <img src="/public/assets/lotus2.png" width="28" height="28">
     </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link">
-      Menu
-    </a>
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
 
-    <div class="navbar-dropdown">
-      <a class="navbar-item" href="/user/profile">
-        My Profile
-      </a>
-      <a class="navbar-item" href="/timesheets">
-        Timesheets
-      </a>
-      <a class="navbar-item">
-        Paystubs (future dev)
-      </a>
-      <a class="navbar-item">
+      <div class="navbar-item">
+        My Dashboard
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/user/profile" >
+            My Profile
+          </a>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
         Time-Off Requests
-      </a>
-      <hr class="navbar-divider">
-      <a class="navbar-item">
-        Contact
-      </a>
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="navbar-end">
+    <div class="navbar-end">
+      <div class="navbar-item">
         <div class="buttons">
           <a class="button is-primary" href="/login">
             <strong>Sign Out</strong>
           </a>
         </div>
       </div>
+    </div>
+  </div>
 </nav>
 
   <!-- <img src="public/assets/home-img.jpg" alt="flowers"> -->
