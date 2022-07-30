@@ -13,6 +13,13 @@ require('dotenv').config();
 const { DATABASE_URL, PORT, SECRET } = process.env;
 const app = express(); 
 
+// SESSION MIDDLEWARE
+app.use(session({
+    secret: SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(expressLayouts); 
 app.use(express.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
@@ -22,16 +29,11 @@ app.use('/users', usersController);
 app.set('view engine', 'ejs');
 
 
-// SESSION MIDDLEWARE
-app.use(session({
-    secret: SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
+
 
 app.use(async function(req, res, next) {
     if(req.session && req.session.user) {
-        const user = await require('./models/user').findByID(req.session.user);
+        const user = await require('./models/user').findById(req.session.user);
         res.locals.user = user;
     } else {
         res.locals.user = null;

@@ -14,6 +14,12 @@ const auth = (req, res, next) => {
     };
 };
 
+// user dashboard GET route
+usersRouter.get('/dashboard', auth, (req, res) => {
+    User.findById(req.session.user, (err, user) => {
+        res.render('./users/dashboard.ejs', { user });
+    });
+});
 
 // login GET route
 usersRouter.get('/login', (req, res) => {
@@ -22,16 +28,21 @@ usersRouter.get('/login', (req, res) => {
 
 // login POST route - authenticate/login a user
 usersRouter.post('/login', (req, res) => {
-    User.findOne({ email: req.body.email }), '+password', (err, foundUser) => {
+    User.findOne({ email: req.body.email }, '+password', (err, foundUser) => {
+        if (err) {
+            console.log(err);
+        }
         if (!foundUser) {
+            console.log('account does not exist')
             return res.render('./users/login.ejs', { err: 'Account does not exist' });
         };
         if (!bcrypt.compareSync(req.body.password, foundUser.password)) {
+            console.log('authentication failed')
             return res.render('./users/login.ejs', { err: 'Email or Password is incorrect' });
         };
         req.session.user = foundUser._id
         res.redirect('/users/dashboard');
-    }
+    })
 })
 
 // signup GET route
@@ -41,20 +52,21 @@ usersRouter.get('/signup', (req, res) => {
 
 // signup POST route - create a new user 
 usersRouter.post('/signup', (req, res) => {
-    if (req.body.password.length < 8) {
-        return res.render('./users/signup.ejs', { err: 'Password must be at least 8 characters long'})
-    }
+    // if (req.body.password.length < 8) {
+    //     return res.render('./users/signup.ejs', { err: 'Password must be at least 8 characters long'})
+    // }
+    console.log(req.body);
     const hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     req.body.password = hash;
     User.create(req.body, (error, user) => {
         if (error) {
             res.render('./users/signup.ejs', { err: 'There is already an account associated with this email'});
         } else {
+            console.log(user);
             req.session.user = user._id
             res.redirect('/users/dashboard');
         }
     });
-
 });
 
 // logout route
@@ -64,12 +76,7 @@ usersRouter.get('/logout', (req, res) => {
     });
 });
 
-// user dashboard GET route
-usersRouter.get('/dashboard', auth, (req, res) => {
-    User.findById(req.session.user, (err, user) => {
-        res.render('./users/dashboard.ejs', { user });
-    });
-});
+
 
 
 // user profile GET route
@@ -81,9 +88,9 @@ usersRouter.get('/profile', (req, res) => {
 
 // profile UPDATE route - updates the user in the database
 usersRouter.put('/profile/edit', auth, (req, res) => {
-    if (req.body.password.length < 8) {
-        return res.render('./users/edit.ejs', { err: 'Password must be at least 8 characters long' });
-    }
+    // if (req.body.password.length < 8) {
+    //     return res.render('./users/edit.ejs', { err: 'Password must be at least 8 characters long' });
+    // }
     const hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     req.body.password = hash;
     User.findByIdAndUpdate(req.session.user, req.body, { new: true }, (err, user) => {

@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
       <img src="/public/assets/lotus2.png" width="28" height="28">
@@ -19,32 +19,31 @@
     <div class="container" style="background-color: white; padding: 20px">
         <h1 style="font-size: larger;"><strong>Sign up for a new account:</strong></h1>
         <br>
+
         <form action="/users/signup" method = "POST">
           <div class="field">
 
             <label class="label" for="name">Name</label>
             <div class="control">
-              <input class="input" type="text" name="name" placeholder="name" autofocus required>
+              <input class="input" type="text" name="name" placeholder="First and Last name" autofocus required>
             </div>
 
             <label class="label" for="phone">Phone Number</label>
             <div class="control">
-              <input class="input" type="tel" name="phone" placeholder="(000) 000-0000">
+              <input class="input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000">
             </div>
 
             <label class="label" for="email">Email</label>
             <div class="control">
-                <input class="input" type="email" name="email" placeholder="name@email.com" required="true">
+                <input class="input" type="email" name="email" placeholder="my.email@email.com" required="true">
             </div>
-              <!-- <p class="help is-danger">This email is invalid</p> -->
 
-              <!-- <p class="help is-danger">There is already am account associate with this email</p> -->
-
-            <label class="label">Password- minimum of 8 characters</label>
+            <label class="label" for="password">Password- minimum of 8 characters</label>
             <div class="control">
-              <input class="input" type="password" placeholder="select password" required="true">
+              <input class="input" type="password" name="password" placeholder="select password" required="true">
             </div> 
             <br>
+
             <input class="button is-primary" type="submit" value="Sign-up">
           </div>
         </form>
