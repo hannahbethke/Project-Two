@@ -28,6 +28,7 @@ usersRouter.get('/login', (req, res) => {
 
 // login POST route - authenticate/login a user
 usersRouter.post('/login', (req, res) => {
+    console.log(req.body.email);
     User.findOne({ email: req.body.email }, '+password', (err, foundUser) => {
         if (err) {
             console.log(err);
