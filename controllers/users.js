@@ -42,7 +42,9 @@ usersRouter.post('/login', (req, res) => {
             return res.render('./users/login.ejs', { err: 'Email or Password is incorrect' });
         };
         req.session.user = foundUser._id
-        res.redirect('/users/dashboard');
+          User.findById(req.session.user, (err, user) => {
+            res.render('./users/dashboard.ejs', { user });
+         });
     })
 })
 
@@ -78,17 +80,22 @@ usersRouter.get('/logout', (req, res) => {
 });
 
 
-
-
-// user profile GET route
+// profile GET route
 usersRouter.get('/profile', (req, res) => {
     User.findById(req.session.user, (err, user) => {
         res.render('./users/profile.ejs', { user })
     });
 });
 
-// profile UPDATE route - updates the user in the database
-usersRouter.put('/profile/edit', auth, (req, res) => {
+// profile EDIT route
+usersRouter.get('/profile/edit', (req, res) => {
+    User.findById(req.session.user, (err, user) => {
+        res.render('./users/edit.ejs', { user, err: '' })
+    });
+});
+
+// profile UPDATE route
+usersRouter.put('/profile', auth, (req, res) => {
     // if (req.body.password.length < 8) {
     //     return res.render('./users/edit.ejs', { err: 'Password must be at least 8 characters long' });
     // }
@@ -99,15 +106,16 @@ usersRouter.put('/profile/edit', auth, (req, res) => {
     });
 });
 
-// profile DELETE route - deletes the user from the database
+// profile DELETE route
 usersRouter.delete('/profile', auth, (req, res) => {
     User.findByIdAndDelete(req.session.user, (err, user) => {
-        Timesheet.deleteMany({ user: req.session.user }, (err, logs) => {
+        Timesheet.deleteMany({ user: req.session.user }, (err, timesheets) => {
             req.session.destroy(() => {
-                res.redirect('/homepage');
+                res.redirect('/users/signup');
             });
         });
     });
 });
+
 
 module.exports = usersRouter;

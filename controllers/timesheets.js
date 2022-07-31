@@ -24,6 +24,16 @@ timesheetsRouter.get('/', (req, res) => {
     });
 });
 
+// Filtered index route
+// timesheetsRouter.get('/filtered', (req, res) => {
+//     User.findById(req.session.user, (error, user) => {
+//         Timesheet.find({ user: req.session.user }, (error, filteredTimesheets) => {
+//             console.log(filteredTimesheets);
+//             res.render('./timesheets/ts-index.ejs', { filteredTimesheets})
+//         });
+//     });
+// });
+
 // New
 timesheetsRouter.get('/new', (req, res) => {
     res.render('./timesheets/ts-new.ejs');
@@ -40,7 +50,6 @@ timesheetsRouter.delete('/:id', (req, res) => {
 timesheetsRouter.put('/:id', (req, res) => {
     Timesheet.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedTimesheet) => {
         res.redirect(`/timesheets/${req.params.id}`);
-        console.log(req.body.date);
     })
 })
 
@@ -61,7 +70,7 @@ timesheetsRouter.get('/:id/edit', (req, res) => {
 // Show
 timesheetsRouter.get('/:id', (req, res) => {
     Timesheet.findById(req.params.id, (err, foundTimesheet) => {
-        res.render('./timesheets/ts-show.ejs', { foundTimesheet });
+        res.render('./timesheets/ts-show.ejs', { foundTimesheet, user: req.session.user });
     });
 });
 

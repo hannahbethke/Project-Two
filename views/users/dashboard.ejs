@@ -62,8 +62,9 @@
     <%  const date = new Date();
         const dateToString = date.toDateString(); 
         let complimentArray = ["Your code is as sweet as syntactic sugar.", "Doin' it flexbox froggie style!", "You are sooooooo smart!", "You are good enough, you are smart enough, and doggone it... people like you!", "Here is a really good compliment for you..."]; %>
-    <h1>Hello, <span style="text-transform: capitalize;"><%= user.name %></span>!</h1>
-    <h1 class="title"><%= dateToString %></h1>
+    <h1 style="font-size: 3rem;">Hello, <span style="text-transform: capitalize;"><%= user.name %></span>!</h1>
+    <h1 class="title"> Today is <%= dateToString %></h1>
+    <br>
     <h2 class="subtitle">
       <%= complimentArray[Math.floor(Math.random() * complimentArray.length)] %>
     </h2>

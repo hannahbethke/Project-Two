@@ -59,7 +59,7 @@
 <section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
   <div class="body" style="padding: 100px;">
     <div class="container" style="background-color: white; padding: 20px">
-
+      <h1><strong>Profile Information:</strong></h1>
       <br>
       <div class="box">
         <div class="field">
@@ -77,18 +77,12 @@
             <div class="control">
               <p><%= user.email %></p>
             </div>
-
-            <label class="label">Password: </label>
-            <div class="control">
-              <p><%= user.password %></p>
-            </div> 
             <br>
         </div>
       </div>
       <br>
-      <a class="button is-light"> continue to My Dashboard...</a>
-
-      <a class="button is-light" href="'users/profile/edit'">Edit Profile Information (dev)</a>
+      
+      <a class="button is-light" href="/users/profile/edit">Edit Profile Information</a>
     </div>
   </div>  
 </section> 

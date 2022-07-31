@@ -1,83 +1,104 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <div class="navbar-item">
-        <img src="/public/assets/lotus2.png" width="28" height="28">
-      </div>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+  <div class="navbar-brand">
+    <div class="navbar-item">
+      <img src="/public/assets/lotus2.png" width="28" height="28">
     </div>
-  
-    <div id="navItems" class="navbar-menu">
-      <div class="navbar-start">
-  
-        <a class="navbar-item" href="/users/profile">
-          Back
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navItems" class="navbar-menu">
+    <div class="navbar-start">
+
+      <a class="navbar-item" href="/users/profile">
+        Back
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Menu
         </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Menu
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/users/profile" >
+            My Profile
           </a>
-  
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="/users/profile" >
-              My Profile
-            </a>
-            <a class="navbar-item" href="/timesheets">
-              Timesheets
-            </a>
-            <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
-              target="_blank" rel="noreferrer noopener">
-              Paystubs
-            </a>
-            <a class="navbar-item">
-          Time-Off Requests
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Contacts
-            </a>
-          </div>
+          <a class="navbar-item" href="/timesheets">
+            Timesheets
+          </a>
+          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+          </a>
+          <a class="navbar-item">
+        Time-Off Requests
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Contacts
+          </a>
         </div>
       </div>
+    </div>
 
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" href="/users/logout">
+            <strong>Sign Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<h1>Edit Account</h1>
-<% if(err) { %>
-<p style="color: red;  margin: 1rem"><%= err %></p>
-<% } %>
-<form action="/users/profile/edit?_method=PUT" method="POST">
-    <label for="name">
-        Name
-        <input type="name" name="name" id="name" value="<%= user.name %>" autofocus required="true">
-    </label>
-    <label for="name">
-        Phone
-        <input type="tel" name="phone" id="name" value="<%= user.phone %>">
-    </label>
-    <label for="email">
-        Email
-        <input type="email" name="email" id="email" value="<%= user.email %>" required="true">
-    </label>
-    <label for="password">
-        Password
-        <input type="password" name="password" id="password">
-    </label>
-    <label for="submit">
-        <input class="button" type="submit" id="submit" value="Save">
-    </label>
-</form>
+<section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
+  <div class="body" style="padding: 100px;">
+    <div class="container" style="background-color: white; padding: 20px">
+      <h1><strong>Profile Information:</strong></h1>
+      <br>
+      <div class="box">
+          <form action="/users/profile?_method=PUT" method="POST">
+            <div class="field">
+
+              <label class="label" for="name">Name</label>
+              <div class="control">
+                <input class="input" type="text" name="name" placeholder="<%= user.name %>" autofocus required>
+              </div>
+  
+              <label class="label" for="phone">Phone Number</label>
+              <div class="control">
+                <input class="input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="<%= user.phone %>">
+              </div>
+  
+              <label class="label" for="email">Email</label>
+              <div class="control">
+                  <input class="input" type="email" name="email" placeholder="<%= user.email %>" required="true">
+              </div>
+  
+              <label class="label" for="password">Password- minimum of 8 characters</label>
+              <div class="control">
+                <input class="input" type="password" name="password" placeholder="select password">
+              </div> 
+              <br>
+  
+              <input class="button is-primary" type="submit" value="Update Profile">
+            </div>
+          </form>
 
 <form action="/users/profile?_method=DELETE" method="POST">
-    <p style="color: red; text-align: center; margin-bottom: 1rem;">CAUTION! CANNOT BE UNDONE!</p>
-    <label for="confirm">
+  <label class="label has-text-centered" for="delete-profile">
+        <input class="button is-light" type="submit" id="delete-profile" value="Delete Profile">
+    </label>
+    <div class="has-text-centered">
+      <p style="color: red; margin-bottom: 1rem;">CAUTION! CANNOT BE UNDONE!</p>
+      <label for="confirm">
         Are you sure? Check box to confirm.
         <input type="checkbox" name="confirm" id="confirm" required>
-    </label>
-    <label for="delete-profile">
-        <input style="width: fit-content;" class="button" type="submit" id="delete-profile" value="Delete Profile">
-    </label>
+      </label>
+    </div>
 </form>
