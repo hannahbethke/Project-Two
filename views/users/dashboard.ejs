@@ -1,3 +1,5 @@
+<body style="background-color:rgb(237, 237, 237)" >
+
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <div class="navbar-item">
@@ -12,35 +14,11 @@
 
   <div id="navItems" class="navbar-menu">
     <div class="navbar-start">
-
+      <div class="navbar-item">
+        NLG
+      </div>
       <div class="navbar-item">
         My Dashboard
-      </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Menu
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="/users/profile" >
-            My Profile
-          </a>
-          <a class="navbar-item" href="/timesheets">
-            Timesheets
-          </a>
-          <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
-            target="_blank" rel="noreferrer noopener">
-            Paystubs
-          </a>
-          <a class="navbar-item">
-        Time-Off Requests
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Contacts
-          </a>
-        </div>
       </div>
     </div>
 
@@ -55,51 +33,147 @@
     </div>
   </div>
 </nav>
-<hr>
-  <!-- <img src="public/assets/home-img.jpg" alt="flowers"> -->
+<br>
+<div class="tile is-ancestor">
 
-  <section class="section">
-    <%  const date = new Date();
+  <div class="tile is-parent is-2">
+    <article class="tile is-child box">
+      <aside class="menu">
+        <p class="menu-label">
+          Navigation
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a class="navbar-item" href="/users/profile">My Profile</a>
+          </li>
+          <li>
+            <a class="navbar-item" href="/timesheets">
+              Timesheets
+            </a>
+          </li>
+          <li>
+            <a class="navbar-item" href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/" 
+            target="_blank" rel="noreferrer noopener">
+            Paystubs
+            </a>
+          </li>
+          <li><a>Time Off Requests</a></li>
+          <li><a>Client Portfolio</a></li>
+          <li><a>Plant Inventory</a></li>
+          <hr class="navbar-divider">
+          <li>
+          <a class="navbar-item">
+            Contacts
+          </a>
+         </li>
+        </ul>
+      </aside>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <div class="content">
+        <%  const date = new Date();
         const dateToString = date.toDateString(); 
-        let complimentArray = ["Your code is as sweet as syntactic sugar.", "Doin' it flexbox froggie style!", "You are sooooooo smart!", "You are good enough, you are smart enough, and doggone it... people like you!", "Here is a really good compliment for you..."]; %>
-    <h1 style="font-size: 3rem;">Hello, <span style="text-transform: capitalize;"><%= user.name %></span>!</h1>
-    <h1 class="title"> Today is <%= dateToString %></h1>
-    <br>
-    <h2 class="subtitle">
-      <%= complimentArray[Math.floor(Math.random() * complimentArray.length)] %>
-    </h2>
-  </section>
-
-  <div class="tile is-ancestor">
-    <div class="tile is-vertical is-12">
-      <div class="tile">
-        <div class="tile is-parent is-vertical">
-          <article class="tile is-child notification is-primary" style="background-color:#9D7DBD;">
-            <div id="ww_36352ada4d3c7" v='1.20' loc='auto' a='{"t":"horizontal","lang":"en","ids":[],"cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_sot":"fahrenheit","sl_ics":"one_a","font":"Arial"}'><a href="https://weatherwidget.org/" id="ww_36352ada4d3c7_u" target="_blank">Embed Weather Widget on Website</a> with Weatherwidget.org</div><script async src="https://srv1.weatherwidget.org/js/?id=ww_36352ada4d3c7"></script>
-          </article>
-          <article class="tile is-child notification is-warning" style="background-color:#9D7DBD;">
-            <p class="title">Links to Plant and Weed Data</p>
-            <p class="subtitle"></p>
-          </article>
-        </div>
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-info" >
-            <p class="title">Calendar</p>
-            <iframe src="https://calendar.google.com/calendar/embed?src=jdt4114tva503f9192qnt6r6f4%40group.calendar.google.com&ctz=America%2FDenver" style="border: 0" width="350px" height="300px" frameborder="0" scrolling="no"></iframe>
-          </article>
-        </div>
+        let dailyAffirmationArray = ["It's hot AF.  Put your sunscreen on or you'll fry like bacon.", "Did you forget your gloves again??  Get your sh*t together!", "Have a lovely day in the garden!", "You are good enough, you are smart enough, and doggone it... people like you!", "Insert snarky comment here..."]; %>
+        <h1 style="font-size: 3rem;">Hello, <span style="text-transform: capitalize;"><%= user.name %></span>!</h1>
+        <p class="title"> Today is <%= dateToString %></p>
+        <br>
+        <p class="subtitle">
+          <%= dailyAffirmationArray[Math.floor(Math.random() * dailyAffirmationArray.length)] %>
+        </p>
       </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification is-danger">
-          <p class="title">Emergency Resources</p>
-          <p class="subtitle"></p>
-          <div class="content">
-            <!-- Content -->
-          </div>
-        </article>
+    </article>
+  </div>
+
+  <div class="tile is-parent is-5">
+    <article class="tile is-child box">
+      <div class="content">
+        <img src="/public/assets/pexels-thierry-fillieul-639086.jpg" alt="flowers">
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="tile box">
+<div id="ww_e79b09f24f0f9" v='1.20' loc='auto' a='{"t":"responsive","lang":"en","ids":[],"cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_tof":"7","sl_sot":"fahrenheit","sl_ics":"one","font":"Arial","cl_odd":"#0000000a"}'><a href="https://weatherwidget.org/" id="ww_e79b09f24f0f9_u" target="_blank">HTML Weather widget for website by Weatherwidget.org</a></div><script async src="https://srv1.weatherwidget.org/js/?id=ww_e79b09f24f0f9"></script>
+
+</div>
+<div class="tile is-ancestor">
+  <div class="tile is-5 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">Announcements</p>
+          <li>Check your clothes for japanese beetles before entering the greenhouse!</li>
+          <li>Jake- contact Gus ASAP regarding irrigation issues</li>
+          <li>Design classes are available. If intereted- ask Jody</li>
+          <li>Do not forget to submit your timesheet by 5pm on Friday!</li>
+    </div>
+    <div class="tile is-child box">
+      <div style="float: left; padding: 15px;">
+        <a href="https://www.weedalert.com/" target="_blank" rel="noreferrer noopener">
+          <img src="/public/assets/pexels-nita-54300.jpg" alt="dandilion">
+        </a>
+      </div>
+      <div>
+        <p class="title">Not sure if it's a weed?</p>
+        <br>
+        <p class="subtitle">Click image for help with identification</p>
       </div>
     </div>
   </div>
+  <div class="tile is-parent is-7">
+    <div class="tile is-child box has-text-centered">
+      <iframe src="https://calendar.google.com/calendar/embed?src=jdt4114tva503f9192qnt6r6f4%40group.calendar.google.com&ctz=America%2FDenver" style="border: 0" width="600px" height="450px" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+</div>
 
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-12">
+    <article class="tile is-child box has-text-centered">
+      <p class="title">Additional Resources</p>
 
+      <div class="container is-centered is-widescreen">
+        <div class="content" style="text-align: center;">
+            <div class="columns is-desktop">
+              <div class="column is-mobile">
+                <a href="https://www.wildheritagegardens.com/" target="_blank" rel="noreferrer nonopener" style="font-size:larger">
+                  NLG Contact Information</a>
+                <ul style="text-align: left;">
+                    <li>1234 Street St</li>
+                    <li>Boulder, CO 80303</li>
+                    <li>Phone: 303 000-0000</li>
+                    <li>Email: nlgardens@email.com</li>
+                </ul>
+            </div>
+                <div class="column is-mobile">
+                    <a href="https://www.boulderoem.com/" target="_blank" rel="noreferrer noopener" style="font-size:larger">
+                      Boulder Office of Emergency Management</a>
+                    <ul style="text-align: left;">
+                        <li>3280 Airport Rdr</li>
+                        <li>Boulder, CO 80301</li>
+                        <li>Phone: 303 441-3390</li>
+                        <li>E-mail: sheriffoem@bouldercounty.org</li>
+                    </ul>
+                </div>
+                <div class="column is-mobile">
+                    <a href="https://bouldercounty.gov/safety/sheriff/" target="_blank" rel="noreferrer nonopener" style="font-size:larger">
+                      Boulder County Sheriff</a>
+                    <ul style="text-align: left;">
+                        <li>5600 Flatiron Pkwy</li>
+                        <li>Boulder, CO 80301</li>
+                        <li>Main: 303-441-3600</li>
+                        <li>Alternate: 303-441-4444</li>
+                        <li>E-mail: bcso@bouldercounty.org</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    
+    </article>
+  </div>
+</div>
+</body>
   
