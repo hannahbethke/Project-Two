@@ -66,30 +66,38 @@
   </p>
 <div class="box">
   <form action="/timesheets/<%= editTimesheet._id %>?_method=PUT" method="POST">
-    <table class="table is-striped is-narrow is-hoverable is-fullwidth">  
+    <table class="table is-striped is-narrow is-hoverable is-fullwidth"> 
       <thead>
         <td><strong>Timesheet Entry: <strong><%= editTimesheet.date.toDateString() %></td>
-        <td></td>
       </thead>
-        <tr>
-            <td>Date: <input type="date" name="date" value = "<%= editTimesheet.date.toDateString() %>" required="true"></td>
-        </tr>
-        <tr>
-            <td>Start Time: <input type="text" name="startTime" value = "<%= editTimesheet.startTime %>"></td>
-        </tr>
-        <tr>
-            <td>End Time: <input type="text" name = "endTime" value = "<%= editTimesheet.endTime %>"></td>
-        </tr>
-        <tr>
-            <td>Location: <input type="text" name="location" value = "<%= editTimesheet.location %>"></td>
-        </tr>
-        <tr>
-            <td>Notes: <input type="text" name="notes" id="" cols="30" rows="10" value = "<%= editTimesheet.notes %>"></td>
-        </tr>
-      </table>
-      <div class="level-item" style="justify-content: left;"></div>
+      <tr>
+        <td>Date: <input type="date" name="date" value = "<%= editTimesheet.date.toDateString() %>" required="true"></td>
+      </tr>
+      <tr>
+        <td>AM Start Time: <input type="text" name="startTime" value = "<%= editTimesheet.startTime %>"></td>
+        </td>
+      </tr>
+      <tr>
+        <td>Lunch Break Start: <input type="text" name="lunchStart" value = "<%= editTimesheet.lunchStart %>"></td>
+      </tr>
+      <tr>
+        <td>Lunch Break End: <input type="text" name="lunchEnd" value = "<%= editTimesheet.lunchEnd %>"></td>
+      </tr>
+      <tr>
+        <td>PM End Time: <input type="text" name = "endTime" value = "<%= editTimesheet.endTime %>"></td>
+      </tr>
+      <tr>
+        <td>Project Location: <input type="text" name="location" value = "<%= editTimesheet.location %>"></td>
+      </tr>
+      <tr>
+        <td>Client Notes: <input type="text" name="notes" id="" cols="30" rows="10" value = "<%= editTimesheet.notes %>"></td>
+      </tr>
+    </table>
+      <div class="level-item" style="justify-content: left;">
         <input class="button is-primary" type="submit" value="Save Changes" style="margin-inline: 10px;">
         <a class="button is-light" href="/timesheets/<%= editTimesheet._id%>">Cancel</a>
-  </form>
+      </div>
+    </form>
+  </div>
 
 

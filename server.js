@@ -10,7 +10,8 @@ require('dotenv').config();
 
 
 // CONFIGURATION
-const { DATABASE_URL, PORT, SECRET } = process.env;
+const { DATABASE_URL, SECRET } = process.env;
+const PORT = process.env.PORT || 3000;
 const app = express(); 
 
 // SESSION MIDDLEWARE

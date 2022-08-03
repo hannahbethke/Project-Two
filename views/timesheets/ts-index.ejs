@@ -65,19 +65,19 @@
     My Timesheets
   </p>
   <br>
-  <div class="container">
+  <div style="padding-left: 30px;">
     <a href="/timesheets/new" class="button is-primary">Create New Timesheet</a>
   </div>
   <hr>
   <p class="panel-tabs">
     <a class="is-active">All</a>
-    <a href="#">By Week</a>
-    <a href="#">By Month</a>
+    <a >By Week (dev)</a>
+    <a >By Month (dev)</a>
   </p>
 
 <% allTimesheets.forEach(timesheet => { %>
-  <a href="/timesheets/<%= timesheet._id %>" class="panel-block is-active" style="padding-left: 25px;">
-    <%= timesheet.date %>
+  <a href="/timesheets/<%= timesheet._id %>" class="panel-block is-active" style="padding-left: 30px;">
+    <%= `${timesheet.date.toDateString()}-  Project Location: ${timesheet.location}` %>
   </a>
 <% }) %>
 </article>

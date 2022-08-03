@@ -6,6 +6,8 @@ const timesheetSchema = new Schema(
 {   
     date: Date,
     startTime: String,
+    lunchStart: String,
+    LunchEnd: String,
     endTime: String,
     location: String, 
     notes: String,

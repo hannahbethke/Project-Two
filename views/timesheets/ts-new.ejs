@@ -63,25 +63,56 @@
 <div class="box">
   <form action="/timesheets" method="POST">
     <table class="table is-striped is-narrow is-hoverable is-fullwidth">  
-      <thead>
-        <td><strong>New Timesheet: <strong></td>
-        <td></td>
-      </thead>
+      <tr>
+        <td>Date: <input type="date" name="date" required="true"></td>
+      </tr>
+      <tr>
+        <td>AM Start Time: <input type="text" name="startTime"></td>
+      </tr>
+      <tr>
+        <td>Lunch Break Start: <input type="text" name="lunchStart"></td>
+      </tr>
+      <tr>
+        <td>Lunch Break End: <input type="text" name="lunchEnd"></td>
+      </tr>
+      <tr>
+        <td>PM End Time: <input type="text" name="endTime"></td>
+      </tr>
+      <tr>
+        <td>Location: <input type="text" name="location"></td>
+      </tr>
+      <tr>
+        <td>Notes: <input name="notes" id="" cols="30" rows="10"></td>
+      </tr>
+    </table>
+      <input class="button is-primary" type="submit" value="Create Timesheet">
+  </form>
+</div>
+
+<!-- <script>
+  function handleClickedButton() {
+    const newFields = document.createElement("div");
+    const parentDiv = document.querySelector(".table");
+    newFields.innerHTML = 
+      `<tr>
+        <td>Start Time: <input type="text" name="startTime"></td>
+      </tr>
+      <tr>
+        <td>End Time: <input type="text" name="endTime"></td>
+      </tr>
+      <tr>
+        <td>Location: <input type="text" name="location"></td>
+      </tr>
+      <tr>
+        <td>Notes: <input name="notes" id="" cols="30" rows="10"></td>
+      </tr>
+    </div>
     <tr>
-      <td>Date: <input type="date" name="date" required="true"></td>
-    </tr>
-    <tr>
-      <td>Start Time: <input type="text" name="startTime"></td>
-    </tr>
-    <tr>
-      <td>End Time: <input type="text" name="endTime"></td>
-    </tr>
-    <tr>
-      <td>Location: <input type="text" name="location"></td>
-    </tr>
-    <tr>
-      <td>Notes: <input name="notes" id="" cols="30" rows="10"></td>
-    </tr>
-    <table>
-      <input class="button" type="submit" value="Create Timesheet">
-</form>
+      <td><button id="addNew" class="button is-primary is-light">Add Entry</button></td>
+    </tr>`
+    parentDiv.prepend(newFields);
+}
+const newEntryButton = document.querySelector("#addNew");
+newEntryButton.addEventListener("click", handleClickedButton);
+
+</script> -->

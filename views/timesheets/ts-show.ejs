@@ -69,22 +69,27 @@
     <table class="table is-striped is-narrow is-hoverable is is-fullwidth">  
       <thead>
           <td><strong>Timesheet Entry: <%= foundTimesheet.date.toDateString() %></strong></td>
-          <td></td>
       </thead>
-        <tr>
-          <td>Date: <%= foundTimesheet.date.toDateString() %></td>
-        </tr>
       <tr>
-          <td>Start Time: <%= foundTimesheet.startTime %></td>
+        <td>Date: <%= foundTimesheet.date.toDateString() %></td>
       </tr>
       <tr>
-          <td>End Time: <%= foundTimesheet.endTime %></td>
+        <td>AM Start Time: <%= foundTimesheet.startTime %></td>
       </tr>
       <tr>
-          <td>Location: <%= foundTimesheet.location %></td>
+        <td>Lunch Break Start: <%= foundTimesheet.lunchStart %></td>
       </tr>
       <tr>
-          <td>Notes: <%= foundTimesheet.notes %></td>
+        <td>Lunch Break End: <%= foundTimesheet.lunchEnd %></td>
+      </tr>
+      <tr>
+        <td>PM End Time: <%= foundTimesheet.endTime %></td>
+      </tr>
+      <tr>
+        <td>Work Location: <%= foundTimesheet.location %></td>
+      </tr>
+      <tr>
+        <td>Client Notes: <%= foundTimesheet.notes %></td>
       </tr>
     </table>
     <br>
