@@ -28,14 +28,14 @@ timesheetsRouter.get('/', (req, res) => {
 });
 
 // Filtered index route
-timesheetsRouter.get('/filtered', (req, res) => {
-    User.findById(req.session.user, (error, user) => {
-        Timesheet.find({ user: req.session.user }, (error, filteredTimesheets) => {
-            console.log(filteredTimesheets);
-            res.render('./timesheets/ts-index.ejs', { filteredTimesheets})
-        });
-    });
-});
+// timesheetsRouter.get('/filtered', (req, res) => {
+//     User.findById(req.session.user, (error, user) => {
+//         Timesheet.find({ user: req.session.user }, (error, filteredTimesheets) => {
+//             console.log(filteredTimesheets);
+//             res.render('./timesheets/ts-index.ejs', { filteredTimesheets})
+//         });
+//     });
+// });
 
 // New
 timesheetsRouter.get('/new', (req, res) => {

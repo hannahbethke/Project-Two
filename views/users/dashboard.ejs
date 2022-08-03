@@ -87,13 +87,24 @@
     </article>
   </div>
 
-  <div class="tile is-parent is-5">
+  <!-- <div class="tile is-parent is-5">
     <article class="tile is-child box">
       <div class="content">
         <img src="/public/assets/pexels-lilly.jpg" alt="flowers">
       </div>
     </article>
   </div>
+</div> -->
+
+<div class="tile is-parent is-5">
+  <article class="tile is-child box">
+    <div class="content">
+      <% let imgArray = ["/public/assets/pexels-lilly.jpg", "/public/assets/pexels-hibiscus.jpg", "/public/assets/pexels-rose.jpg", "/public/assets/pexels-butterfly.jpg", "/public/assets/pexels-tulip.jpg"]; %>
+
+      <img src="<%= imgArray[Math.floor(Math.random() * imgArray.length)] %>" alt="flowers">
+    </div>
+  </article>
+</div>
 </div>
 
 <div class="tile box">
@@ -173,6 +184,7 @@
     </article>
   </div>
 </div>
+
 <script>
 const toggleBurger = () => {
   let burgerIcon = document.getElementById('burger');
@@ -180,7 +192,7 @@ const toggleBurger = () => {
   burgerIcon.classList.toggle('is-active');
   dropMenu.classList.toggle('is-active');
 };
-
 </script>
+
 </body>
   
