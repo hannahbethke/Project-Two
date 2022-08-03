@@ -28,9 +28,6 @@ app.use('/timesheets', timesheetsController);
 app.use('/users', usersController);
 app.set('view engine', 'ejs');
 
-
-
-
 app.use(async function(req, res, next) {
     if(req.session && req.session.user) {
         const user = await require('./models/user').findById(req.session.user);
@@ -61,19 +58,6 @@ app.get('/', (req, res) => {
 app.get('/homepage', (req, res) => {
     res.render('homepage.ejs');
 });
-
-// app.get('/login', (req, res) => {
-//     res.render('./users/login.ejs');
-// });
-
-// app.get('/signup', (req, res) => {
-//     res.render('./users/signup.ejs');
-// });
-
-// app.get('/user/profile', (req, res) => {
-//     res.render('./users/profile.ejs');
-// });
-
 
 // LISTENER
 app.listen(PORT, () => {

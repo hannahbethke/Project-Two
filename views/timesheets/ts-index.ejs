@@ -75,11 +75,11 @@
     <a href="#">By Month</a>
   </p>
 
-  <% for (let i = 0; i < objArray.length; i++) { console.log(objArray[i][i])%>
-  <a class="panel-block is-active" href="/timesheets/<%= objArray[i][i]._id%>" style="padding-left: 25px;">
-    <%= objArray[i][i].date.toDateString(); %>
+<% allTimesheets.forEach(timesheet => { %>
+  <a href="/timesheets/<%= timesheet._id %>" class="panel-block is-active" style="padding-left: 25px;">
+    <%= timesheet.date %>
   </a>
-  <% }; %>
+<% }) %>
 </article>
 
 
