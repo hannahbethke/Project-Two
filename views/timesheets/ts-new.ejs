@@ -3,7 +3,7 @@
     <div class="navbar-item">
       <img src="/public/assets/lotus2.png" width="28" height="28">
     </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navItems">
+    <a id="burger" role="button" class="navbar-burger" onclick="toggleBurger()" aria-label="menu" aria-expanded="false" data-target="navItems">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -91,30 +91,11 @@
   </form>
 </div>
 
-<!-- <script>
-  function handleClickedButton() {
-    const newFields = document.createElement("div");
-    const parentDiv = document.querySelector(".table");
-    newFields.innerHTML = 
-      `<tr>
-        <td>Start Time: <input type="text" name="startTime"></td>
-      </tr>
-      <tr>
-        <td>End Time: <input type="text" name="endTime"></td>
-      </tr>
-      <tr>
-        <td>Location: <input type="text" name="location"></td>
-      </tr>
-      <tr>
-        <td>Notes: <input name="notes" id="" cols="30" rows="10"></td>
-      </tr>
-    </div>
-    <tr>
-      <td><button id="addNew" class="button is-primary is-light">Add Entry</button></td>
-    </tr>`
-    parentDiv.prepend(newFields);
-}
-const newEntryButton = document.querySelector("#addNew");
-newEntryButton.addEventListener("click", handleClickedButton);
-
-</script> -->
+<script>
+  const toggleBurger = () => {
+    let burgerIcon = document.getElementById('burger');
+    let dropMenu = document.getElementById('navItems');
+    burgerIcon.classList.toggle('is-active');
+    dropMenu.classList.toggle('is-active');
+  };
+  </script>
