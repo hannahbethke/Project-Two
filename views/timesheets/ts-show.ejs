@@ -12,7 +12,9 @@
 
   <div id="navItems" class="navbar-menu">
     <div class="navbar-start">
-
+      <div class="navbar-item">
+        NLG
+      </div>
       <a class="navbar-item" href="/timesheets">
         Back
       </a>
@@ -34,8 +36,10 @@
             Paystubs
           </a>
           <a class="navbar-item">
-        Time-Off Requests
+            Time-Off Requests
           </a>
+          <a class="navbar-item">Client Portfolio</a>
+          <a class="navbar-item">Plant Inventory</a>
           <hr class="navbar-divider">
           <a class="navbar-item">
             Contacts
@@ -56,6 +60,7 @@
   </div>
 </nav>
 
+
 <article class="panel">
   <p class="panel-heading">
     My Timesheets
@@ -63,11 +68,11 @@
   <div class="box">
     <table class="table is-striped is-narrow is-hoverable is is-fullwidth">  
       <thead>
-          <td><strong>Timesheet Entry: <%= foundTimesheet.date %></strong></td>
+          <td><strong>Timesheet Entry: <%= foundTimesheet.date.toDateString() %></strong></td>
           <td></td>
       </thead>
         <tr>
-          <td>Date: <%= foundTimesheet.date %></td>
+          <td>Date: <%= foundTimesheet.date.toDateString() %></td>
         </tr>
       <tr>
           <td>Start Time: <%= foundTimesheet.startTime %></td>
@@ -85,9 +90,11 @@
     <br>
     <div class="level">
       <div class="level-item" style="justify-content: left;">
-        <a class="button" href="/timesheets/<%= foundTimesheet._id%>/edit" style="margin-inline: 20px;">Edit timesheet</a>
-        <form action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
-          <input class="button" type="submit" value="Delete Timesheet">
+        <a class="button is-primary" href="/timesheets/<%= foundTimesheet._id%>/edit" style="margin-inline: 10px;">Edit timesheet</a>
+        <form class="level-item" action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
+          <input class="button is-danger" type="submit" value="Delete Timesheet">
+          <p style="margin-inline: 10px;">Are you sure you want to delete?  Check box to confirm.</p>
+          <input type="checkbox" name="confirm" id="confirm" required>
         </form>
       </div>
     </div>

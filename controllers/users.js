@@ -28,7 +28,6 @@ usersRouter.get('/login', (req, res) => {
 
 // login POST route - authenticate/login a user
 usersRouter.post('/login', (req, res) => {
-    console.log(req.body.email);
     User.findOne({ email: req.body.email }, '+password', (err, foundUser) => {
         if (err) {
             console.log(err);
@@ -55,17 +54,15 @@ usersRouter.get('/signup', (req, res) => {
 
 // signup POST route - create a new user 
 usersRouter.post('/signup', (req, res) => {
-    // if (req.body.password.length < 8) {
-    //     return res.render('./users/signup.ejs', { err: 'Password must be at least 8 characters long'})
-    // }
-    console.log(req.body);
+    if (req.body.password.length < 8) {
+        return res.render('./users/signup.ejs', { err: 'Password must be at least 8 characters long'})
+    }
     const hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(SALT_ROUNDS));
     req.body.password = hash;
     User.create(req.body, (error, user) => {
         if (error) {
-            res.render('./users/signup.ejs', { err: 'There is already an account associated with this email'});
+            res.render('./users/signup.ejs', { err: 'This email is already an account associated with this email'});
         } else {
-            console.log(user);
             req.session.user = user._id
             res.redirect('/users/dashboard');
         }
@@ -83,6 +80,7 @@ usersRouter.get('/logout', (req, res) => {
 // profile GET route
 usersRouter.get('/profile', (req, res) => {
     User.findById(req.session.user, (err, user) => {
+        console.log(user);
         res.render('./users/profile.ejs', { user })
     });
 });

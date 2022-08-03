@@ -61,3 +61,23 @@ A web application that allows landscaping employees of Native Landscapes to trac
 - Make sure app is completely accessible to those with disabilities
 
 - Enhance CSS (button styling and styling of main div on first page)
+
+# TODO
+- ts-index.ejs:  
+    put timesheets in order by date
+    get rid of GMT issues (printing on page and selecting wrong date)
+    add filtering feature for week/month
+
+- make real users and timesheets
+
+- make rotating images in dashboard.ejs
+
+- add fake contact list
+
+- add inventory routes
+
+- add filtering user timesheets
+
+- update readme
+
+- deploy

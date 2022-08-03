@@ -13,45 +13,48 @@
       </div>
   </div>
 </nav>
-
 <section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
-  <div class="body" style="padding: 100px;">
-    <div class="container" style="background-color: white; padding: 20px">
-        <h1 style="font-size: larger;"><strong>Sign up for a new account:</strong></h1>
-        <br>
+  <div class="hero-body" style="padding: 100px; max-width: 1000px;">
+    <div class="container has-text-centered" style="background-color: white; padding: 20px">
+      <h1 class="title">Sign up for a new account</h1>
+      <hr class="login-hr">
 
-        <form action="/users/signup" method = "POST">
-          <div class="field">
+        <div class="box">
+          <% if(err) { %>
+            <p style="color: red;  margin: 1rem"><%= err %></p>
+            <% } %>
+          <form action="/users/signup" method = "POST">
+            <div class="field has-text-left">
 
-            <label class="label" for="name">Name</label>
-            <div class="control">
-              <input class="input" type="text" name="name" placeholder="First and Last name" autofocus required>
+              <label class="label" for="name">Name</label>
+              <div class="control">
+                <input class="input" type="text" name="name" placeholder="First and Last name" autofocus required>
+              </div>
+
+              <label class="label" for="phone">Phone Number</label>
+              <div class="control">
+                <input class="input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000">
+              </div>
+
+              <label class="label" for="email">Email</label>
+              <div class="control">
+                  <input class="input" type="email" name="email" placeholder="my.email@email.com" required="true">
+              </div>
+
+              <label class="label" for="password">Password- minimum of 8 characters</label>
+              <div class="control">
+                <input class="input" type="password" name="password" placeholder="select password" required="true">
+              </div> 
+              <br>
+              <div class="level-item" style="justify-content: left;">
+                <input class="button is-primary" type="submit" value="Sign-up" style="margin-inline: 10px;">
+                <a class="button is-light" href="/homepage">Cancel</a>
+              </div>
             </div>
-
-            <label class="label" for="phone">Phone Number</label>
-            <div class="control">
-              <input class="input" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000">
-            </div>
-
-            <label class="label" for="email">Email</label>
-            <div class="control">
-                <input class="input" type="email" name="email" placeholder="my.email@email.com" required="true">
-            </div>
-
-            <label class="label" for="password">Password- minimum of 8 characters</label>
-            <div class="control">
-              <input class="input" type="password" name="password" placeholder="select password" required="true">
-            </div> 
-            <br>
-
-            <input class="button is-primary" type="submit" value="Sign-up">
-          </div>
-        </form>
-        <br>
-        <a class="button is-light" href="/homepage">Cancel</a>
-        <br>
-        <p>Already have an account?</p>
-        <a class="button is-light" href="/users/login">Login</a>
+          </form>
+        </div>
+          <p>Already have an account?</p>
+          <a class="button is-light" href="/users/login">Login</a>
     </div>
   </div>
 </section> 

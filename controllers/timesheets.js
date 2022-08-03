@@ -20,7 +20,12 @@ timesheetsRouter.use(function (req, res, next) {
 // Index
 timesheetsRouter.get('/', (req, res) => {
     Timesheet.find({}, (err, allTimesheets) => {
-            res.render('./timesheets/ts-index.ejs', { allTimesheets });
+        let objArray = [];
+        objArray.push(allTimesheets);
+        objArray.sort((a,b) => {
+            return Number(a.date) - Number(b.date);
+            })
+            res.render('./timesheets/ts-index.ejs', { allTimesheets, objArray });
     });
 });
 

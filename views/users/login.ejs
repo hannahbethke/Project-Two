@@ -15,9 +15,10 @@
 </nav>
 
 <section class="hero is-fullheight" style="background-image: url('/public/assets/home-img.jpg'); background-size: cover; background-repeat: no-repeat;">
-    <div class="hero-body" style="padding: 100px; max-width: 800px; justify-content: center;">
+    <div class="hero-body" style="padding: 100px; max-height: 800px; max-width: 1000px;">
         <div class="container has-text-centered" style="background-color: white; padding: 20px">
-            <h1 class="title has-text-black">Native Landscapes and Gardens</h1>
+            <h1 class="title">Native Landscapes and Gardens</h1>
+            <h1 class="subtitle">Employee Portal</h1>
             <hr class="login-hr">
             <p class="subtitle has-text-black">Please login to proceed</p>
 
@@ -25,18 +26,22 @@
                 <figure class="avatar">
                     <img class="image is-128x128" src="/public/assets/lotus2.png" alt="company-logo" style="display: inline;">
                 </figure>
-
+                <% if(err) { %>
+                    <p style="color: red; margin: 1rem">
+                        <%= err %>
+                    </p>
+                    <% } %>
                 <form action="/users/login" method="POST">
                     <div class="field has-text-left">
                         <div class="control">
-                        <label for="email">Email:</label>
+                        <label class="label" for="email">Email</label>
                             <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
                         </div>
                     </div>
 
                     <div class="field has-text-left">
                         <div class="control">
-                            <label for="password">Password:</label>
+                            <label class="label" for="password">Password</label>
                             <input class="input is-large" type="password" name="password" placeholder="Your Password">
                         </div>
                     </div>
