@@ -68,43 +68,44 @@
   <div class="box">
     <table class="table is-striped is-narrow is-hoverable is is-fullwidth">  
       <thead>
-          <td><strong>Timesheet Entry: <%= foundTimesheet.date.toDateString() %></strong></td>
+          <td><strong style="font-size: 20px;">Timesheet Entry: <%= foundTimesheet.date.toDateString() %></strong></td>
       </thead>
       <tr>
-        <td>Date: <%= foundTimesheet.date.toDateString() %></td>
+        <td><strong>Date: </strong><br><%= foundTimesheet.date.toDateString() %></td>
       </tr>
       <tr>
-        <td>AM Start Time: <%= foundTimesheet.startTime %></td>
+        <td><strong>AM Start Time: </strong><br><%= foundTimesheet.startTime %></td>
       </tr>
       <tr>
-        <td>Lunch Break Start: <%= foundTimesheet.lunchStart %></td>
+        <td><strong>Lunch Break Start: </strong><br><%= foundTimesheet.lunchStart %></td>
       </tr>
       <tr>
-        <td>Lunch Break End: <%= foundTimesheet.lunchEnd %></td>
+        <td><strong>Lunch Break End: </strong><br><%= foundTimesheet.lunchEnd %></td>
       </tr>
       <tr>
-        <td>PM End Time: <%= foundTimesheet.endTime %></td>
+        <td><strong>PM End Time: </strong><br><%= foundTimesheet.endTime %></td>
       </tr>
       <tr>
-        <td>Work Location: <%= foundTimesheet.location %></td>
+        <td><strong>Project Location: </strong><br><%= foundTimesheet.location %></td>
       </tr>
       <tr>
-        <td>Client Notes: <%= foundTimesheet.notes %></td>
+        <td><strong>Client Notes: </strong><br><%= foundTimesheet.notes %></td>
       </tr>
     </table>
     <br>
     <div class="level">
       <div class="level-item" style="justify-content: left;">
         <a class="button is-primary" href="/timesheets/<%= foundTimesheet._id%>/edit" style="margin-inline: 10px;">Edit timesheet</a>
-        <form class="level-item" action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
-          <input class="button is-danger" type="submit" value="Delete Timesheet">
-          <p style="margin-inline: 10px;">Are you sure you want to delete?  Check box to confirm.</p>
-          <input type="checkbox" name="confirm" id="confirm" required>
-        </form>
       </div>
     </div>
   </div>
 </article>
+<form class="has-text-centered" action="/timesheets/<%= foundTimesheet._id %>?_method=DELETE" method="POST">
+  <input class="button is-danger" type="submit" value="Delete Timesheet">
+  <p style="margin-inline: 10px;">Are you sure?  Check box to confirm.</p>
+  <input type="checkbox" name="confirm" id="confirm" required>
+</form>
+
 
 
 

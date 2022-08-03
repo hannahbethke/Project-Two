@@ -61,7 +61,7 @@ usersRouter.post('/signup', (req, res) => {
     req.body.password = hash;
     User.create(req.body, (error, user) => {
         if (error) {
-            res.render('./users/signup.ejs', { err: 'This email is already an account associated with this email'});
+            res.render('./users/signup.ejs', { err: 'There is already an account registered with this email'});
         } else {
             req.session.user = user._id
             res.redirect('/users/dashboard');
@@ -109,7 +109,7 @@ usersRouter.delete('/profile', auth, (req, res) => {
     User.findByIdAndDelete(req.session.user, (err, user) => {
         Timesheet.deleteMany({ user: req.session.user }, (err, timesheets) => {
             req.session.destroy(() => {
-                res.redirect('/users/signup');
+                res.redirect('/homepage');
             });
         });
     });

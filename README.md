@@ -1,83 +1,59 @@
-# Native Landscapes Employee Portal
+# Native Landscapes and Gardens Employee Portal
 
-A web application that allows landscaping employees of Native Landscapes to track their billable hours while on location, complete and submit timesheets, access pay data and have easy access to important relevant information needed while on the job site.  
+An example of a web application that allows landscaping employees of (fake company) Native Landscapes and Gardens to track their billable hours while on location, complete and submit timesheets, access pay data and have easy access to emergency resources and important relevant information.  
 
 # User Stories
 
-- From the home page of the web application, I should have immediate access to current weather and air quality conditions, and be able to click on links that will take me directly to my local emergency alert systems for lightning, fire, flood and tornado warnings. 
+- As a user, I should be able to sign up for an account and login to my employee portal from the home page of the website
 
-- From the home page of the web application, I should also have quick access to plant data.
+- From the employee dashboard, a user should have immediate access to current weather and air quality conditions, and be able to click on links that will direct them to resources such as plant information and local emergency services
 
-- As a user, I should be able to login to my employee portal from the home page. 
+- From the employee dashboard, a user should be able to access the company calendar with crew schedule and events, important announcements, and a weather widget with local daily forcast
 
-- Once logged into my portal, I should be able to see a calendar with 
+- As a user, I should be able to create, read, update, and delete both my profile information and timesheets.
 
-    - I should also be able to click on each cocktail in the list and return a recipe with ingredients and instructions.
-
-- As a user, I would like to see an image associated with each cocktail.
+- As a user, I should be able to destroy my account information as well as any timesheets that I have created.
 
 
 # Technologies Used
 
 - HTML5
 - CSS3
-- Javascript
-- Bootstrap
-- Google Fonts
-- Cocktail DB API (https://www.thecocktaildb.com/)
+- Bulma
+- Mongoose
+- MongoDB
+- Express/Express-ejs
+- Bcrypt
+- Sessions
 
 # Screenshots
 
-![main browser page](images/screenshots/wireframe_2.png)
+![homepage](public/assets/screenshots/homepage.png)
 
-![search elements](images/screenshots/wireframe_1.png)
+![login](public/assets/screenshots/login.png)
 
-![final main page](images/screenshots/Cocktail_Hour_Screenshot.png)
+![dashboard](public/assets/screenshots/dashboard.png)
 
-![drink list page](images/screenshots/drink_list.png)
+![timesheets](public/assets/screenshots/timesheets.png)
 
-![recipe page](images/screenshots/recipe.png)
-
-![spirits info page](images/screenshots/spirits_search.png)
 
 # Getting Started
 
-<!-- [Click here](hosted/deployed app url) to ! -->
-
-[Click here](https://guileless-profiterole-9b97c3.netlify.app) to see the deployed app!
+[Click here](https://polar-shelf-77084.herokuapp.com/homepage) to see the deployed app!
 
 # Future Enhancements
 
-- Add ability for users to save a list of favorite recipes
+- User will be able to create, read, update, and delete time-off request forms
 
-- Add ability for users to save a shopping list for their recipe that can be "checked off" as items are acquired
+- Client Portfolio will be created to track all important client information
 
-- Add links to search for stores nearby where they can purchase ingredients, glassware, or bar tools
+- Plant database will be created both with an inventory of what is in the company greenhouse as well as the use of a plant API that allows you to look up plant data plus care and irrigation needs
 
-# Developer Enhancements
+- Company directory will be added in the "contacts" section of the employee dashboard
 
-- Add "back to top" button for each modal
+- User will be able to filter timesheets by week and month
 
-- Make sure app is completely accessible to those with disabilities
 
-- Enhance CSS (button styling and styling of main div on first page)
 
-# TODO
-- ts-index.ejs:  
-    put timesheets in order by date
-    get rid of GMT issues (printing on page and selecting wrong date)
-    add filtering feature for week/month
 
-- make real users and timesheets
 
-- make rotating images in dashboard.ejs
-
-- add fake contact list
-
-- add inventory routes
-
-- add filtering user timesheets
-
-- update readme
-
-- deploy
